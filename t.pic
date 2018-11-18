@@ -1,0 +1,24 @@
+
+.PS
+copy "flowchart.pic"
+terminal(Begin)
+action(Blue)
+action(Yellow)
+decision(Blue)
+terminal(End)
+
+connect(TerminalBegin.e,ActionBlue.w)
+connect(ActionBlue.e,ActionYellow.w)
+connect(ActionYellow.e,DecisionBlue.w)
+connect(DecisionBlue.e,TerminalEnd.w,Yes)
+raconnect(DecisionBlue.s,ActionYellow.s,No)
+raconnect(DecisionBlue.n,ActionYellow.n,Maybe)
+
+move
+down
+move
+terminal(ReallyEnd)
+inspection(Circle)
+connect(TerminalReallyEnd.n,TerminalEnd.s)
+connect(TerminalReallyEnd.s,InspectCircle.n)
+.PE
