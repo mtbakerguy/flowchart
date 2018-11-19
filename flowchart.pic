@@ -32,6 +32,12 @@ circle "$1"
 move
 }
 
+define io {
+# $1 = text/name
+IO$1:
+[ line up right .5 then right 1 then down left .5 then left 1 ] "$1"
+}
+
 define connect {
 #$1 = from $2 = to $3 = text
 line "$3" -> from $1 to $2
