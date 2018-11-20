@@ -14,21 +14,22 @@ connect(DecisionBlue.e,TerminalEnd.w,Yes)
 raconnect(DecisionBlue.s,ActionYellow.s,No)
 raconnect(DecisionBlue.n,ActionYellow.n,Maybe)
 
-move
-down
-move
+move; down; move
 terminal(ReallyEnd)
 inspection(Circle)
 connect(TerminalReallyEnd.n,TerminalEnd.s)
 connect(TerminalReallyEnd.s,InspectCircle.n)
 
-left
-move
-move
-down
-move
-move
-move
+left; move; down; move; move
+
 io(hithere)
-connect(InspectCircle.s,IOhithere.n)
+raconnect(InspectCircle.w,IOhithere.n)
+delay(reason)
+connect(IOhithere.s,Delayreason.n)
+move; move
+document(uhoh)
+connect(Delayreason.s,Documentuhoh.n)
+move; move
+db(ttt)
+connect(Documentuhoh.s,DBttt.n)
 .PE

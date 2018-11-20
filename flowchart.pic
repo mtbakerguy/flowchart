@@ -36,6 +36,46 @@ define io {
 # $1 = text/name
 IO$1:
 [ line up right .5 then right 1 then down left .5 then left 1 ] "$1"
+move
+}
+
+define delay {
+# $1 = text/name
+Delay$1:
+[
+ line left .5 then down .75 then right .5
+ arc to last line
+] "$1"
+move
+}
+
+define document {
+# $1 = text/name
+Document$1:
+[
+ start = Here.x
+ line up .8 then right 1 then down .8
+ middle = start + Here.x
+ arc rad .5 from last line.start to (middle/2,Here.y)
+ arc rad .5 cw from last arc.end to last line.end
+] "$1"
+move
+}
+
+define db {
+# $1 = text/name
+DB$1:
+[
+ x = Here.x
+ y = Here.y
+
+ line up .8
+ line up .8 from (x+.8,y)
+ arc rad .7 from (x,y) to (x+.8,y)
+ arc rad .8 from (x,y+.8) to (x+.8,y+.8)
+ arc cw rad .9 from (x,y+.8) to (x+.8,y+.8)
+] "$1"
+move
 }
 
 define connect {
